@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Login.css';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => {
+const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -387,4 +387,4 @@ const SignIn = () => {
         </>
     );
 };
-export default SignIn;
+export default Login;

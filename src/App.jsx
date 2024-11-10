@@ -1,25 +1,33 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Herosection from './components/Herosection';
-import FeaturedCompanies from './components/FeaturedCompanies';
-import Testimonials from './components/Testimonials';
-import BlogsCard from './components/BlogsCard';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Navbar from './components/Navbar';  // Import Navbar
+import HomePage from './pages/Homepage/Homepage';
+import Login from './pages/Login/Login';
 
+// Create the router with route paths and corresponding components
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,  // This will render the HomePage component when at the root path
+  },
+  {
+    path: "/login",
+    element: <Login />,  // This will render the Login component when at '/login'
+  },
+]);
 
 const App = () => {
-    return <>
-
-        <Navbar />
-        <Herosection />
-        <FeaturedCompanies />
-        <BlogsCard />
-        <Testimonials />
-        <Contact />
-        <Footer />
-        
-        
+  return (
+    <>
+      {/* Navbar is always rendered outside RouterProvider */}
+    
+      
+      {/* RouterProvider renders the content based on the active route */}
+      <RouterProvider router={router} >
+      <Navbar />
+      </RouterProvider>
     </>
-}
+  );
+};
+
 export default App;
